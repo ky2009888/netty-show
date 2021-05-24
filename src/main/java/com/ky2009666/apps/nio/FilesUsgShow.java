@@ -56,6 +56,9 @@ public class FilesUsgShow {
             @Override
             public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
                 filesCount.incrementAndGet();
+                if(file.toString().endsWith("exe")){
+                    log.info("file:{}",file);
+                }
                 return super.visitFile(file, attrs);
             }
         });
